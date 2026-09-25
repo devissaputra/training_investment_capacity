@@ -8,6 +8,7 @@ ROOT = Path(__file__).resolve().parents[1]
 EXPECTED_YEARS = [2011, 2013, 2015, 2017, 2022, 2024]
 EXPECTED_SECTOR_COUNT = 13
 EXPECTED_SOURCE_SHA256 = "cd9c834d3dc72b4649dc2d152072d1c92282c2373d51d735524f10fa531da437"
+EXPECTED_SOURCE_ROWS = 7848
 
 
 def coverage_share(trainees, employees):
@@ -19,26 +20,26 @@ def real_change_pct(new, old):
 
 
 def load_trend():
-    with (ROOT / "data/derived/primary_results.csv").open(newline="") as f:
+    with (ROOT / "data/derived/primary_results.csv").open(newline="", encoding="utf-8") as f:
         return list(csv.DictReader(f))
 
 
 def load_sectors():
-    with (ROOT / "data/derived/secondary_results.csv").open(newline="") as f:
+    with (ROOT / "data/derived/secondary_results.csv").open(newline="", encoding="utf-8") as f:
         return list(csv.DictReader(f))
 
 
 def load_robustness():
-    with (ROOT / "data/derived/robustness_results.csv").open(newline="") as f:
+    with (ROOT / "data/derived/robustness_results.csv").open(newline="", encoding="utf-8") as f:
         return {r["metric"]: float(r["value"]) for r in csv.DictReader(f)}
 
 
 def load_summary():
-    return json.loads((ROOT / "results/empirical_summary.json").read_text())
+    return json.loads((ROOT / "results/empirical_summary.json").read_text(encoding="utf-8"))
 
 
 def load_manifest():
-    return json.loads((ROOT / "data/source_manifest.json").read_text())
+    return json.loads((ROOT / "data/source_manifest.json").read_text(encoding="utf-8"))
 
 
 def trend_diagnostics(rows=None):
@@ -60,6 +61,8 @@ def trend_diagnostics(rows=None):
         "per_employee_monotone_nonincreasing": all(per_employee[i] >= per_employee[i + 1] for i in range(len(per_employee) - 1)),
         "coverage_values_in_unit_interval": all(0.0 <= x <= 1.0 for x in coverage),
         "real_change_2011_2024_pct": real_change_pct(r24["per_employee_gbp_2024_prices"], r11["per_employee_gbp_2024_prices"]),
+        "real_change_2022_2024_pct": real_change_pct(r24["per_employee_gbp_2024_prices"], r22["per_employee_gbp_2024_prices"]),
+        "coverage_change_2022_2024_pp": (float(r24["training_coverage_share"]) - float(r22["training_coverage_share"])) * 100.0,
     }
 
 
@@ -102,36 +105,42 @@ def validate_bundle():
 
     td = trend_diagnostics(trend)
     sd = sector_diagnostics(sectors)
-    if not all(
-        td[k]
-        for k in (
-            "years_match_release",
-            "2019_excluded",
-            "per_employee_2024_below_2011",
-            "per_employee_2024_below_2022",
-            "coverage_2024_above_2022",
-            "per_employee_monotone_nonincreasing",
-            "coverage_values_in_unit_interval",
-        )
-    ):
-        return False
 
+    for key in (
+        "years_match_release",
+        "2019_excluded",
+        "per_employee_2024_below_2011",
+        "per_employee_2024_below_2022",
+        "coverage_2024_above_2022",
+        "per_employee_monotone_nonincreasing",
+        "coverage_values_in_unit_interval",
+    ):
+        if not td[key]:
+            return False
+
+    if sd["sector_count"] != 13:
+        return False
     if sd["highest_sector"] != "Construction" or sd["lowest_sector"] != "Public admin.":
         return False
 
     metrics = summary.get("headline_metrics", {})
-    expected = {
+    expected_metrics = {
         "uk_per_employee_2011_gbp_2024_prices": 2410,
         "uk_per_employee_2024_gbp": 1700,
         "highest_sector_per_employee_2024": 2630,
         "lowest_sector_per_employee_2024": 920,
+        "training_coverage_share_2022": 0.6022,
+        "training_coverage_share_2024": 0.6285,
+        "coverage_change_pp_2022_2024": 2.63,
+        "per_employee_real_change_2022_2024_pct": -13.27,
+        "per_trainee_real_change_2022_2024_pct": -16.62,
+        "total_training_real_change_2022_2024_pct": -10.16,
     }
-    if any(float(metrics.get(k, -1)) != float(v) for k, v in expected.items()):
-        return False
+    for key, value in expected_metrics.items():
+        if abs(float(metrics.get(key, 999999)) - float(value)) > 0.005:
+            return False
 
-    if abs(float(metrics.get("real_change_pct_2011_2024", 999)) - (-29.46)) > 0.01:
-        return False
-    if abs(float(metrics.get("training_coverage_share_2024", -1)) - 0.6285) > 1e-4:
+    if abs(float(metrics.get("real_change_pct_2011_2024", 999)) - (-29.46)) > 0.005:
         return False
 
     expected_robustness = {
@@ -151,9 +160,15 @@ def validate_bundle():
 
     if manifest.get("source_sha256") != EXPECTED_SOURCE_SHA256:
         return False
-    if manifest.get("source_dataset_rows") != 7848:
+    if manifest.get("source_dataset_rows") != EXPECTED_SOURCE_ROWS:
+        return False
+    if manifest.get("comparable_uk_years") != EXPECTED_YEARS:
         return False
     if manifest.get("raw_data_redistributed") is not False:
+        return False
+    if summary.get("comparable_uk_years") != EXPECTED_YEARS:
+        return False
+    if summary.get("release_version") != "1.1.0":
         return False
 
     return True
