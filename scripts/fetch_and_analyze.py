@@ -250,12 +250,22 @@ def check_release(trend, sectors, robustness, summary):
         for key in (
             "per_employee_gbp_2024_prices",
             "per_trainee_gbp_2024_prices",
-            "total_training_mn_gbp",
             "employees",
             "trainees",
-            "training_coverage_share",
         ):
             assert_close(packaged[key], expected[key])
+
+        # The release stores total expenditure to 2 decimals and reach to 4.
+        assert_close(
+            packaged["total_training_mn_gbp"],
+            expected["total_training_mn_gbp"],
+            0.005,
+        )
+        assert_close(
+            packaged["training_coverage_share"],
+            expected["training_coverage_share"],
+            0.00005,
+        )
 
     if len(packaged_sectors) != len(sectors):
         raise SystemExit("FAIL: packaged sector count differs")
