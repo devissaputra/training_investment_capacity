@@ -23,6 +23,7 @@ Release files (excluding generated test caches):
 - `data/README.md`
 - `data/derived/primary_results.csv`
 - `data/derived/secondary_results.csv`
+- `data/derived/robustness_results.csv`
 - `data/source_manifest.json`
 - `docs/analysis_plan.md`
 - `docs/data_dictionary.md`
