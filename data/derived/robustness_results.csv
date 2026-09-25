@@ -5,6 +5,6 @@ total_training_real_change_2011_2024_pct,-18.53
 coverage_change_2011_2024_pp,8.26
 coverage_change_2022_2024_pp,2.63
 sector_per_employee_max_min_ratio_2024,2.86
-sector_per_employee_range_gbp_2024,1710
-sector_per_employee_unweighted_median_gbp_2024,1570
+sector_per_employee_range_gbp_2024,1710.0
+sector_per_employee_unweighted_median_gbp_2024,1570.0
 sector_per_employee_unweighted_cv_2024,0.2623
