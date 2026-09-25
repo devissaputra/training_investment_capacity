@@ -13,7 +13,10 @@
     "lowest_sector_per_employee_2024": 920,
     "training_coverage_share_2022": 0.6022,
     "training_coverage_share_2024": 0.6285,
-    "coverage_change_pp_2022_2024": 2.63
+    "coverage_change_pp_2022_2024": 2.63,
+    "per_employee_real_change_2022_2024_pct": -13.27,
+    "per_trainee_real_change_2022_2024_pct": -16.62,
+    "total_training_real_change_2022_2024_pct": -10.16
   },
   "robustness_diagnostics": {
     "per_employee_real_change_2011_2024_pct": -29.46,
@@ -34,7 +37,9 @@
     2022,
     2024
   ],
-  "finding": "Real UK employer training spend per employee fell from £2,410 in 2011 to £1,700 in 2024 in 2024 prices (-29.5%). The survey-derived trainees-to-employees ratio rose from about 60.2% in 2022 to 62.8% in 2024. In 2024, sector spending ranged from £920 per employee in Public admin. to £2,630 in Construction.",
+  "finding": "Real UK employer training spend per employee fell from £2,410 in 2011 to £1,700 in 2024 in 2024 prices. Between 2022 and 2024, the derived trainees-to-employees ratio rose from 60.22% to 62.85% while real spend per employee fell 13.27% and real spend per trainee fell 16.62%. In 2024, sector spending ranged from £920 per employee in Public admin. to £2,630 in Construction.",
   "source": "UK Employer Skills Survey 2024 - Investment in Training",
-  "retrieved": "2026-09-25"
+  "retrieved": "2026-09-25",
+  "release_version": "1.1.0",
+  "interpretation_boundary": "Expenditure intensity and training reach are aggregate resource-deployment indicators. They do not directly measure training quality, learning transfer, skill gain, causal return on investment, or latent organizational capability."
 }
