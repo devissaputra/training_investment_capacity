@@ -1,29 +1,62 @@
-# Data
+# Data Provenance and Derived Evidence
 
-**Primary source:** UK Employer Skills Survey 2024 — Investment in Training
+## Canonical source
 
-**Release page:** https://explore-education-statistics.service.gov.uk/find-statistics/employer-skills-survey/2024
+UK Employer Skills Survey 2024 — Investment in Training.
 
-**Dataset page:** https://explore-education-statistics.service.gov.uk/data-catalogue/data-set/a07479d1-e26d-4b66-9ec9-e683917c1388
+Official Explore Education Statistics dataset:
 
-**Source rows:** 7,848
+`https://explore-education-statistics.service.gov.uk/data-catalogue/data-set/a07479d1-e26d-4b66-9ec9-e683917c1388`
 
-**Pinned SHA-256:** `cd9c834d3dc72b4649dc2d152072d1c92282c2373d51d735524f10fa531da437`
+## Source identity
 
-**Reuse note:** downloadable government open data; follow the publisher's Open Government Licence and release guidance.
+- published: 24 July 2025
+- rows: 7,848
+- time coverage: 2011–2024
+- SHA-256: `cd9c834d3dc72b4649dc2d152072d1c92282c2373d51d735524f10fa531da437`
 
-Raw source rows are not bundled. The reproducible fetch script downloads and verifies the source before analysis.
+## Raw-file policy
 
-## Packaged derived evidence
-- `primary_results.csv`: all six comparable UK-wide waves;
-- `secondary_results.csv`: all 13 published 2024 sectors;
-- `robustness_results.csv`: compact descriptive sensitivity diagnostics.
+The source is downloadable government open data.
 
-## Comparability note
-2019 is intentionally absent from the UK-wide series because Scotland did not participate in ESS 2019.
+The raw 7,848-row CSV is not republished in this repository.
 
-## Measurement note
-`training_coverage_share` is calculated from published trainees/employees counts. It is an approximate derived reach ratio, not a separately published official percentage.
+## Comparable UK trend
 
-## Construct boundary
-Observed expenditure intensity and training reach are used as indicators of employer training investment capacity. They do not measure training quality, causal returns, individual learning, or latent organizational capability.
+Packaged UK-wide evidence uses:
+
+```text
+2011, 2013, 2015, 2017, 2022, 2024
+```
+
+2019 is excluded because Scotland did not participate.
+
+## Packaged evidence
+
+- `derived/primary_results.csv` — complete comparable UK longitudinal series
+- `derived/secondary_results.csv` — 13-sector 2024 comparison
+- `derived/robustness_results.csv` — descriptive robustness diagnostics
+
+## Inflation handling
+
+Historical comparisons use source fields already expressed in 2024 prices.
+
+The repository does not independently apply inflation adjustments.
+
+## Derived reach
+
+`training_coverage_share` is calculated as:
+
+```text
+published trainees / published employees
+```
+
+It is an approximate descriptive ratio rather than a separately published official percentage.
+
+## Source rebuild
+
+```bash
+python scripts/fetch_and_analyze.py --check
+```
+
+A source checksum or row-count change causes verification to fail rather than silently changing the release.
