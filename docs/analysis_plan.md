@@ -1,47 +1,113 @@
 # Analysis Plan
 
 ## Status
-This file documents the analysis released in this repository. It is **not a preregistration** and should not be described as one.
 
-## Primary descriptive target
-How have real employer training investment intensity and training reach changed over time, and how heterogeneous is 2024 spending across sectors?
+This document records the released secondary analysis.
 
-## Source and comparability
-The source is the official DfE Employer Skills Survey 2024 Investment in Training data table. UK-wide comparable waves are 2011, 2013, 2015, 2017, 2022, and 2024. The 2019 wave is excluded from the UK time series because Scotland did not participate.
+It is not a preregistration.
 
-The analysis uses the source-provided 2024-price expenditure variables. It does not independently apply an inflation adjustment to nominal expenditure.
+## RQ1: long-run investment intensity
 
-## Primary operationalizations
-1. real training expenditure per employee;
-2. real training expenditure per trainee;
-3. real total training expenditure;
-4. approximate training-reach ratio = published trainees / published employees;
-5. 2024 sector spend per employee and per trainee.
+Use comparable UK-wide survey waves:
 
-The phrase **training investment capacity** refers here to observed resource-deployment intensity and reach. It does not assert a direct measure of latent organizational capability.
+```text
+2011, 2013, 2015, 2017, 2022, 2024
+```
 
-## Hypotheses
-1. H1: 2024 real spend per employee is below 2011.
-2. H2: 2024 spend per employee is heterogeneous across the 13 published sectors.
-3. H3: from 2022 to 2024, the derived reach ratio rises while real spend per employee falls.
+Measure real training expenditure per employee using the source-provided 2024-price series.
 
-## Released descriptive diagnostics
-- 2011→2024 percent change in per-employee expenditure;
-- 2011→2024 percent change in per-trainee expenditure;
-- 2011→2024 percent change in real total expenditure;
-- 2011→2024 and 2022→2024 coverage-ratio changes;
-- 2024 sector max/min ratio;
-- 2024 sector range;
-- 2024 unweighted sector median;
-- 2024 unweighted sector coefficient of variation.
+Report:
 
-These diagnostics test the stability of the descriptive interpretation across alternative scale summaries. They are not formal significance tests.
+- complete six-wave trajectory;
+- 2011 endpoint;
+- 2024 endpoint;
+- percentage change;
+- monotonicity of the released series.
 
-## Survey-estimation context
-The 2024 Investment in Training follow-up collected expenditure information from 6,210 sites. The official methodology states that 275 incomplete cases were excluded, leaving 5,935 sites for analysis. Published expenditure totals also incorporate documented modelling of missing inputs. The repository therefore treats the downloaded values as official aggregate estimates, not raw employer accounting records.
+## RQ2: spend per trainee
 
-## Missingness / exclusions
-Suppressed or non-numeric aggregate cells are excluded rather than imputed by this repository. Respondent-level imputation is part of the official survey production methodology and is not repeated here.
+Repeat the long-run comparison using real spend per trainee.
+
+Report:
+
+- complete six-wave trajectory;
+- 2011–2024 percentage change.
+
+## RQ3: reach versus intensity
+
+For 2022 and 2024, compare:
+
+- real spend per employee;
+- real spend per trainee;
+- total real expenditure;
+- repository-derived trainees/employees ratio.
+
+The main descriptive question is whether training reach and real investment intensity move in the same direction.
+
+Do not interpret divergence as efficiency without outcome evidence.
+
+## RQ4: 2024 sector heterogeneity
+
+Use all 13 source sectors at United Kingdom / National / Total site-size level.
+
+Report:
+
+- spend per employee;
+- spend per trainee;
+- maximum;
+- minimum;
+- range;
+- max/min ratio;
+- unweighted median;
+- unweighted coefficient of variation.
+
+Do not rank sectors as good or bad.
+
+## Derived training-reach measure
+
+```text
+training_coverage_share = trainees / employees
+```
+
+This is a repository-derived descriptive ratio from weighted published counts.
+
+It is not a respondent-level probability and should not replace an official published percentage when that measure is available.
+
+## Comparability rule
+
+2019 is excluded from the UK-wide longitudinal trend because Scotland did not participate.
+
+The rule is fixed in code and tests.
+
+## Inflation rule
+
+Use the official `twentyfour_prices_*` source fields.
+
+Do not independently re-inflate historical expenditure.
+
+## Robustness diagnostics
+
+Report:
+
+- per-employee real change;
+- per-trainee real change;
+- total real expenditure change;
+- reach change 2011–2024;
+- reach change 2022–2024;
+- sector max/min ratio;
+- sector range;
+- sector median;
+- sector CV.
+
+These are descriptive diagnostics rather than inferential tests.
 
 ## Interpretation boundary
-The analysis cannot identify individual workers, training quality, causal returns, training effectiveness, or latent organizational capability. The trainees/employees ratio is derived from published aggregate counts and can differ slightly from an official percentage due to rounding and survey estimation.
+
+Do not infer:
+
+- training quality;
+- learning transfer;
+- skill gain;
+- causal return;
+- latent organizational capability;
+- worker-level exposure from aggregate counts.
