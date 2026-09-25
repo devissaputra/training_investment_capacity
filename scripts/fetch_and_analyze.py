@@ -8,10 +8,13 @@ import io
 import json
 import urllib.request
 from pathlib import Path
-
-from research.model import coverage_share, real_change_pct
+import sys
 
 ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from research.model import coverage_share, real_change_pct
 MANIFEST_PATH = ROOT / "data/source_manifest.json"
 TREND_PATH = ROOT / "data/derived/primary_results.csv"
 SECTOR_PATH = ROOT / "data/derived/secondary_results.csv"
