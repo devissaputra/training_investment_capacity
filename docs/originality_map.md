@@ -1,26 +1,51 @@
-# Originality Map Against the Current 40-Repository Portfolio
+# Originality and Portfolio Positioning
 
-## Closest existing repositories
-- `competency_gap_intelligence`
-- `training_transfer_analytics`
-- `workplace_learning_recommender`
+## Portfolio track
 
-## Why this empirical bundle is distinct
-This is a macro/meso L&D investment-capacity study using official employer statistics. The outcome is employer training investment intensity over time and across sectors, not learner behavior, transfer, gap diagnosis, or recommendation.
+Learning & Development Research.
 
-## Five-axis distinctness test
-A new bundle passes only if it differs from its nearest portfolio neighbors on at least four of these five dimensions:
+## Research position
 
-1. **Unit of analysis**
-2. **Research question / decision problem**
-3. **Empirical source**
-4. **Method family**
-5. **Primary output artifact / inference**
+Workforce Development / Training Investment / L&D Analytics.
 
-This bundle passes that test.
+## What this repository is
 
-## Existing substantive portfolio reviewed
-`student_grade_regression`, `classification_calibration`, `imbalanced_learning`, `pca_clustering`, `anomaly_detection`, `mlp_neural_network`, `cnn_image_classification`, `lstm_time_series`, `explainable_ai`, `mini_transformers_sequences`, `genai_learning_observatory`, `teacher_ai_assessment`, `privacy_preserving_learning_analytics`, `multimodal_self_regulation_lab`, `learning_design_process_mining`, `hybrid_intelligence_lab`, `explanation_faithfulness_aied`, `collaborative_reasoning_analytics`, `cognitive_offloading_analytics`, `classroom_discourse_intelligence`, `adaptive_socratic_tutor`, `knowledge_tracing_benchmark`, `instructor_insight_engine`, `learner_state_sequence_model`, `multimodal_learning_analytics`, `constructive_alignment_auditor`, `assessment_design_lab`, `learning_experiment_platform`, `lesson_design_agent`, `causal_learning_analytics`, `learner_agency_simulator`, `competency_gap_intelligence`, `workplace_learning_recommender`, `training_transfer_analytics`, `engagement_early_warning`, `curriculum_knowledge_graph`, `self_regulated_learning_copilot`, `feedback_quality_evaluator`, `misconception_aware_rag`, `responsible_aied_evaluation`
+A reproducible secondary analysis of real employer training investment intensity, training reach, and sector heterogeneity in the United Kingdom.
 
-## Meaning of “original”
-Originality here means a materially distinct research contribution **inside this portfolio**. It does not claim that the academic topic has never been studied. The bundle cites the public data and prior research rather than presenting established methods as inventions.
+## What it is not
+
+It is not:
+
+- a training ROI model;
+- a learning-effectiveness study;
+- a worker-level training exposure model;
+- a causal estimate of spending effects;
+- a latent capability score.
+
+## Distinctive contribution
+
+The source release publishes the underlying official statistics.
+
+This repository creates a focused L&D measurement argument by explicitly separating:
+
+1. real spend per employee;
+2. real spend per trainee;
+3. total real expenditure;
+4. workforce training reach;
+5. sector investment heterogeneity.
+
+The key empirical pattern is the 2022–2024 divergence in which training reach rises while real expenditure intensity falls.
+
+## Nearest portfolio neighbors
+
+- `organizational_network_resilience`
+- `technology_skill_renewal_pressure`
+- `training_evidence_decision_value`
+
+This repository is distinct in source, unit of analysis, economic measure, and workforce-development decision problem.
+
+## Meaning of originality
+
+Originality here means a materially distinct, reproducible secondary analysis and L&D framing.
+
+It does not claim invention of employer training expenditure statistics or repeated cross-sectional analysis.
