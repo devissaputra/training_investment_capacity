@@ -1,0 +1,21 @@
+{
+  "study": "Employer Training Investment Capacity: A Longitudinal UK Study",
+  "headline_metrics": {
+    "uk_per_employee_2011_gbp_2024_prices": 2410,
+    "uk_per_employee_2024_gbp": 1700,
+    "real_change_pct_2011_2024": -29.46,
+    "uk_total_training_2011_bn_2024_prices": 65.06,
+    "uk_total_training_2024_bn": 53.0,
+    "employees_trained_2024_m": 19.584,
+    "highest_sector_2024": "Construction",
+    "highest_sector_per_employee_2024": 2630,
+    "lowest_sector_2024": "Public admin.",
+    "lowest_sector_per_employee_2024": 920,
+    "training_coverage_share_2022": 0.6022,
+    "training_coverage_share_2024": 0.6285,
+    "coverage_change_pp_2022_2024": 2.63
+  },
+  "finding": "UK employer training spend per employee fell from £2,410 in 2011 to £1,700 in 2024 in 2024 prices (−29.5%). At the same time, the survey-derived trained-employee share rose from about 60.2% in 2022 to 62.8% in 2024. In 2024, sector spending ranged from £920 per employee in Public Administration to £2,630 in Construction, showing that reach and investment intensity can move differently.",
+  "source": "UK Employer Skills Survey 2024 — Investment in Training",
+  "retrieved": "2026-09-25"
+}

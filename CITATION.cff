@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this empirical research bundle, cite this repository and the primary dataset/source documented in docs/references.md."
+title: "Employer Training Investment Capacity: A Longitudinal UK Study"
+type: software
+authors:
+  - family-names: Saputra
+    given-names: Devis W.
+date-released: 2026-09-25
+license: MIT
+repository-code: "https://github.com/devissaputra/training_investment_capacity"
+keywords:
+  - learning-development
+  - training-investment
+  - workforce-development
+  - official-statistics
+  - longitudinal-analysis
+  - empirical-study
+  - reproducible-research

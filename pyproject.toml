@@ -1,0 +1,10 @@
+[project]
+name = "training-investment-capacity"
+version = "1.0.0"
+description = "Empirical L&D capacity study using longitudinal UK Employer Skills Survey investment-in-training statistics."
+requires-python = ">=3.10"
+dependencies = []
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
