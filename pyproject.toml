@@ -1,7 +1,7 @@
 [project]
 name = "training-investment-capacity"
-version = "1.0.0"
-description = "Empirical L&D capacity study using longitudinal UK Employer Skills Survey investment-in-training statistics."
+version = "1.1.0"
+description = "L&D research package on UK employer training reach, real investment intensity, and sector variation."
 requires-python = ">=3.10"
 dependencies = []
 
