@@ -201,7 +201,7 @@ def write_outputs(trend, sectors, robustness, summary):
         for metric, value in robustness.items():
             writer.writerow({"metric": metric, "value": value})
 
-    SUMMARY_PATH.write_text(json.dumps(summary, indent=2) + "\n")
+    SUMMARY_PATH.write_text(json.dumps(summary, indent=2, ensure_ascii=False) + "\n")
 
 
 def main():
