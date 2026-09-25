@@ -1,40 +1,88 @@
 # Data Dictionary
 
-## Provenance
-See `data/source_manifest.json`. The official 7,848-row DfE source CSV is pinned by SHA-256. Raw source rows are not redistributed.
+## Source fields
+
+The rebuild uses the official Employer Skills Survey Investment in Training CSV.
+
+Core source fields used include:
+
+- `time_period`
+- `geographic_level`
+- `country_name`
+- `site_size`
+- `sector`
+- `employees`
+- `trainees`
+- `twentyfour_prices_total_per_employee`
+- `twentyfour_prices_total_per_trainee`
+- `twentyfour_prices_sum_total_mn`
 
 ## `data/derived/primary_results.csv`
-Complete comparable UK-wide national trend used in the release.
+
+Complete comparable UK trend.
 
 Columns:
-- `year`: comparable ESS survey wave;
-- `per_employee_gbp_2024_prices`: source-provided training expenditure per employee in 2024 prices;
-- `per_trainee_gbp_2024_prices`: source-provided training expenditure per trainee in 2024 prices;
-- `total_training_mn_gbp`: source-provided total training expenditure in £ millions, 2024 prices;
-- `employees`: published estimated employees;
-- `trainees`: published estimated trainees;
-- `training_coverage_share`: repository-derived trainees/employees ratio.
 
-The released years are 2011, 2013, 2015, 2017, 2022, and 2024. 2019 is excluded because Scotland did not participate in ESS 2019 and is not treated by DfE as a comparable UK-wide time-series point.
+- `year`
+- `per_employee_gbp_2024_prices`
+- `per_trainee_gbp_2024_prices`
+- `total_training_mn_gbp`
+- `employees`
+- `trainees`
+- `training_coverage_share`
+
+### Training coverage share
+
+```text
+trainees / employees
+```
+
+This is repository-derived from published survey-weighted counts.
+
+Because the published counts may be rounded, it is an approximate descriptive reach indicator.
 
 ## `data/derived/secondary_results.csv`
-Complete set of 13 published 2024 sectors used in the cross-sector comparison.
+
+All 13 published UK sectors in 2024.
 
 Columns:
-- `sector`;
-- `per_employee_gbp`;
-- `per_trainee_gbp`;
-- `employees`;
-- `trainees`.
+
+- sector;
+- spend per employee;
+- spend per trainee;
+- published employees;
+- published trainees.
 
 ## `data/derived/robustness_results.csv`
-Compact descriptive diagnostics derived from the two complete tables:
-- changes in per-employee, per-trainee, and total real expenditure;
-- changes in the derived reach ratio;
-- sector max/min ratio, range, unweighted median, and unweighted coefficient of variation.
+
+Released descriptive diagnostics:
+
+- real per-employee change;
+- real per-trainee change;
+- total real expenditure change;
+- reach change 2011–2024;
+- reach change 2022–2024;
+- sector max/min ratio;
+- sector range;
+- sector median;
+- sector coefficient of variation.
 
 ## `results/empirical_summary.json`
-Machine-readable headline results, comparable-year list, and robustness diagnostics. Tests verify agreement with the derived tables.
 
-## Construct boundary
-The coverage ratio is a derived descriptive measure based on aggregate counts. Training investment capacity is operationalized through observed expenditure intensity and reach, not direct training quality, learning outcomes, or latent capability.
+Machine-readable headline evidence, including:
+
+- endpoint investment values;
+- long-run real change;
+- 2024 total expenditure;
+- 2024 trainee count;
+- sector extrema;
+- 2022 and 2024 reach values;
+- robustness diagnostics;
+- comparable years;
+- interpretation boundary.
+
+## Important distinction
+
+`training_coverage_share` is repository-derived.
+
+It should not be presented as if it were a separately published official ESS percentage without explaining the derivation.
