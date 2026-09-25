@@ -1,18 +1,19 @@
 cff-version: 1.2.0
-message: "If you use this empirical research bundle, cite this repository and the primary dataset/source documented in docs/references.md."
+message: "If you use this Learning and Development research package, cite this repository and the UK Employer Skills Survey source."
 title: "Employer Training Investment Capacity: A Longitudinal UK Study"
 type: software
 authors:
   - family-names: Saputra
     given-names: Devis W.
-date-released: 2026-09-25
+version: 1.1.0
+date-released: 2026-09-26
 license: MIT
 repository-code: "https://github.com/devissaputra/training_investment_capacity"
 keywords:
   - learning-development
-  - training-investment
   - workforce-development
+  - training-investment
+  - employer-skills-survey
   - official-statistics
   - longitudinal-analysis
-  - empirical-study
   - reproducible-research
