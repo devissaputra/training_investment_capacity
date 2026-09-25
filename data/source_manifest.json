@@ -1,6 +1,6 @@
 {
   "study_title": "Employer Training Investment Capacity: A Longitudinal UK Study",
-  "design": "Secondary analysis of repeated cross-sectional official UK employer statistics",
+  "design": "Repeated cross-sectional secondary analysis of official UK employer training statistics",
   "retrieved_for_analysis": "2026-09-25",
   "source_name": "UK Employer Skills Survey 2024 - Investment in Training",
   "source_page": "https://explore-education-statistics.service.gov.uk/find-statistics/employer-skills-survey/2024",
@@ -9,14 +9,16 @@
   "source_release_published": "2025-07-24",
   "source_dataset_rows": 7848,
   "source_sha256": "cd9c834d3dc72b4649dc2d152072d1c92282c2373d51d735524f10fa531da437",
-  "license_note": "Explore Education Statistics publishes downloadable open data; reuse is subject to the publisher's Open Government Licence terms and release guidance.",
+  "license_note": "Explore Education Statistics publishes downloadable government open data; reuse is subject to the publisher's Open Government Licence terms and release guidance.",
   "raw_data_redistributed": false,
   "derived_empirical_results_in_repository": true,
   "comparable_uk_years": [2011, 2013, 2015, 2017, 2022, 2024],
-  "comparability_note": "2019 is intentionally excluded from the UK-wide longitudinal series because Scotland did not participate in ESS 2019. DfE states that UK time-series results therefore omit 2019.",
-  "methodology_note": "The 2024 Investment in Training follow-up collected expenditure information from 6,210 sites; 275 incomplete cases were excluded, leaving 5,935 sites for analysis. Published expenditure estimates use documented modelling procedures for missing components, including range- and mean-based assignments.",
-  "coverage_measure_note": "training_coverage_share is a repository-derived trainees/employees ratio from published aggregate counts. Because published counts are rounded and survey-weighted, it should be interpreted as an approximate descriptive reach measure rather than a separate official percentage estimate.",
-  "construct_boundary": "Observed expenditure intensity and training reach are treated as indicators of employer training investment capacity, not as a direct measurement of latent organizational capability, training quality, worker-level outcomes, or causal returns to training.",
+  "comparability_note": "2019 is intentionally excluded from the UK-wide longitudinal series because Scotland did not participate in ESS 2019.",
+  "inflation_note": "Historical expenditure comparisons use the source-provided 2024-price variables. The repository does not independently re-inflate earlier years.",
+  "methodology_note": "The 2024 Investment in Training follow-up collected expenditure information from 6,210 sites; 275 incomplete cases were excluded, leaving 5,935 sites for analysis. Published expenditure estimates use survey weighting and documented modelling of missing expenditure components.",
+  "coverage_measure_note": "training_coverage_share is a repository-derived trainees/employees ratio from published aggregate counts. Because the counts are survey-weighted and may be rounded, it is an approximate descriptive reach measure rather than a separate official percentage estimate.",
+  "construct_boundary": "Observed expenditure intensity and training reach are aggregate L&D resource-deployment indicators, not direct measurements of training quality, learning transfer, skill gain, causal return on investment, worker-level outcomes, or latent organizational capability.",
   "repository_slug": "training_investment_capacity",
-  "supersedes_prototype_slug": "learning_capacity_queue_lab"
+  "portfolio_track": "Learning & Development Research",
+  "release_version": "1.1.0"
 }
