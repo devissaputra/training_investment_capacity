@@ -15,7 +15,19 @@
     "training_coverage_share_2024": 0.6285,
     "coverage_change_pp_2022_2024": 2.63
   },
-  "finding": "UK employer training spend per employee fell from £2,410 in 2011 to £1,700 in 2024 in 2024 prices (−29.5%). At the same time, the survey-derived trained-employee share rose from about 60.2% in 2022 to 62.8% in 2024. In 2024, sector spending ranged from £920 per employee in Public Administration to £2,630 in Construction, showing that reach and investment intensity can move differently.",
-  "source": "UK Employer Skills Survey 2024 — Investment in Training",
+  "robustness_diagnostics": {
+    "per_employee_real_change_2011_2024_pct": -29.46,
+    "per_trainee_real_change_2011_2024_pct": -38.69,
+    "total_training_real_change_2011_2024_pct": -18.53,
+    "coverage_change_2011_2024_pp": 8.26,
+    "coverage_change_2022_2024_pp": 2.63,
+    "sector_per_employee_max_min_ratio_2024": 2.86,
+    "sector_per_employee_range_gbp_2024": 1710,
+    "sector_per_employee_unweighted_median_gbp_2024": 1570,
+    "sector_per_employee_unweighted_cv_2024": 0.2623
+  },
+  "comparable_uk_years": [2011, 2013, 2015, 2017, 2022, 2024],
+  "finding": "Real UK employer training spend per employee fell from £2,410 in 2011 to £1,700 in 2024 in 2024 prices (-29.5%). The survey-derived trainees-to-employees ratio rose from about 60.2% in 2022 to 62.8% in 2024. In 2024, sector spending ranged from £920 per employee in Public admin. to £2,630 in Construction.",
+  "source": "UK Employer Skills Survey 2024 - Investment in Training",
   "retrieved": "2026-09-25"
 }
