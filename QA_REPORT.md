@@ -2,7 +2,7 @@
 
 ## Release verdict
 
-**Status: PASS after the current Learning & Development research-package upgrade, subject to the latest CI and source rebuild.**
+**Status: PASS. The upgraded research package passes both regular CI and the strict official DfE source-to-release rebuild.**
 
 The scientific narrative is in [REPORT.md](REPORT.md).
 
